@@ -1,6 +1,5 @@
-
 {
-  "name": "simpleWeather",
+  "name": "simpleweather",
   "version": "2.3.0",
   "description": "A simple jQuery plugin to display the current weather information for any location.",
   "keywords": [
