@@ -5,7 +5,7 @@ A simple jQuery plugin to display the current weather information for any locati
 ## Get The Latest
 **[Bower](http://bower.io/)**
 ```shell
-bower install jquery-simpleweather
+bower install simpleWeather
 ```
 
 **[CDNJS](http://cdnjs.com/libraries/jquery.simpleWeather/)**
