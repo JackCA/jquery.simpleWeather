@@ -5,10 +5,10 @@
  * A simple jQuery plugin to display the current weather
  * information for any location using Yahoo! Weather.
  *
- * Developed by James Fleeting <@twofivethreetwo> <http://iwasasuperhero.com>
+ * Developed by James Fleeting <@fleetingftw> <http://iwasasuperhero.com>
  * Another project from monkeeCreate <http://monkeecreate.com>
  *
- * Version 2.3.0 - Last updated: June 16 2013
+ * Version 2.4.0 - Last updated: January 22 2013
  */
 (function($) {
 	"use strict";
@@ -72,6 +72,14 @@
 								var lowAlt = Math.round((5.0/9.0)*(result.item.forecast[0].low-32.0));
 								var tomorrowHighAlt = Math.round((5.0/9.0)*(result.item.forecast[1].high-32.0));
 								var tomorrowLowAlt = Math.round((5.0/9.0)*(result.item.forecast[1].low-32.0));
+								var forecastOneHighAlt = Math.round((5.0/9.0)*(result.item.forecast[1].high-32.0));
+								var forecastOneLowAlt = Math.round((5.0/9.0)*(result.item.forecast[1].low-32.0));
+								var forecastTwoHighAlt = Math.round((5.0/9.0)*(result.item.forecast[2].high-32.0));
+								var forecastTwoLowAlt = Math.round((5.0/9.0)*(result.item.forecast[2].low-32.0));
+								var forecastThreeHighAlt = Math.round((5.0/9.0)*(result.item.forecast[3].high-32.0));
+								var forecastThreeLowAlt = Math.round((5.0/9.0)*(result.item.forecast[3].low-32.0));
+								var forecastFourHighAlt = Math.round((5.0/9.0)*(result.item.forecast[4].high-32.0));
+								var forecastFourLowAlt = Math.round((5.0/9.0)*(result.item.forecast[4].low-32.0));
 							} else {
 								var unitAlt = "f";
 								var tempAlt = Math.round((9.0/5.0)*result.item.condition.temp+32.0);
@@ -79,6 +87,14 @@
 								var lowAlt = Math.round((9.0/5.0)*result.item.forecast[0].low+32.0);
 								var tomorrowHighAlt = Math.round((5.0/9.0)*(result.item.forecast[1].high+32.0));
 								var tomorrowLowAlt = Math.round((5.0/9.0)*(result.item.forecast[1].low+32.0));
+								var forecastOneHighAlt = Math.round((5.0/9.0)*(result.item.forecast[1].high+32.0));
+								var forecastOneLowAlt = Math.round((5.0/9.0)*(result.item.forecast[1].low+32.0));
+								var forecastTwoHighAlt = Math.round((5.0/9.0)*(result.item.forecast[2].high+32.0));
+								var forecastTwoLowAlt = Math.round((5.0/9.0)*(result.item.forecast[2].low+32.0));
+								var forecastThreeHighAlt = Math.round((5.0/9.0)*(result.item.forecast[3].high+32.0));
+								var forecastThreeLowAlt = Math.round((5.0/9.0)*(result.item.forecast[3].low+32.0));
+								var forecastFourHighAlt = Math.round((5.0/9.0)*(result.item.forecast[4].high+32.0));
+								var forecastFourLowAlt = Math.round((5.0/9.0)*(result.item.forecast[4].low+32.0));
 							}
 
 							var weather = {
@@ -127,6 +143,52 @@
 									day: result.item.forecast[1].day,
 									image: "http://l.yimg.com/a/i/us/nws/weather/gr/"+result.item.forecast[1].code+"d.png"
 								},
+								forecasts:{
+									one:{
+										high: result.item.forecast[1].high,
+										highAlt: forecastOneHighAlt,
+										low: result.item.forecast[1].low,
+										lowAlt: forecastOneLowAlt,
+										forecast: result.item.forecast[1].text,
+										code: result.item.forecast[1].code,
+										date: result.item.forecast[1].date,
+										day: result.item.forecast[1].day,
+										image: "http://l.yimg.com/a/i/us/nws/weather/gr/"+result.item.forecast[1].code+"d.png"
+									},
+									two:{
+										high: result.item.forecast[2].high,
+										highAlt: forecastTwoHighAlt,
+										low: result.item.forecast[2].low,
+										lowAlt: forecastTwoLowAlt,
+										forecast: result.item.forecast[2].text,
+										code: result.item.forecast[2].code,
+										date: result.item.forecast[2].date,
+										day: result.item.forecast[2].day,
+										image: "http://l.yimg.com/a/i/us/nws/weather/gr/"+result.item.forecast[2].code+"d.png"
+									},
+									three:{
+										high: result.item.forecast[3].high,
+										highAlt: forecastThreeHighAlt,
+										low: result.item.forecast[3].low,
+										lowAlt: forecastThreeLowAlt,
+										forecast: result.item.forecast[3].text,
+										code: result.item.forecast[3].code,
+										date: result.item.forecast[3].date,
+										day: result.item.forecast[3].day,
+										image: "http://l.yimg.com/a/i/us/nws/weather/gr/"+result.item.forecast[3].code+"d.png"
+									},
+									four:{
+										high: result.item.forecast[4].high,
+										highAlt: forecastFourHighAlt,
+										low: result.item.forecast[4].low,
+										lowAlt: forecastFourLowAlt,
+										forecast: result.item.forecast[4].text,
+										code: result.item.forecast[4].code,
+										date: result.item.forecast[4].date,
+										day: result.item.forecast[4].day,
+										image: "http://l.yimg.com/a/i/us/nws/weather/gr/"+result.item.forecast[4].code+"d.png"
+									},
+								},
 								city: result.location.city,
 								country: result.location.country,
 								region: result.location.region,
@@ -134,6 +196,7 @@
 								link: result.item.link
 							};
 
+							console.log(weather);
 							options.success(weather);
 						});
 					} else {
