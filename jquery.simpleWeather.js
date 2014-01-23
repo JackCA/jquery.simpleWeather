@@ -196,7 +196,6 @@
 								link: result.item.link
 							};
 
-							console.log(weather);
 							options.success(weather);
 						});
 					} else {
